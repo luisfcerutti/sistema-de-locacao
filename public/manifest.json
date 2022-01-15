@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Sistema - Locadora",
+  "name": "Sistema de controle locadora",
   "icons": [
     {
       "src": "favicon.ico",
