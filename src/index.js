@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import storeConfig from './store/storeConfig'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+
+const store = storeConfig()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store.storeConfig}>
+    <PersistGate loading={null} persistor={store.persistor}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </PersistGate>
+  </Provider>
+  ,
+  document.querySelector('#root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Biblioteca do Ant Design está retornando alguns erros de findDOM
+// https://github.com/ant-design/ant-design/issues/26136
+// Essa é a motivaçao das linhas abaixo, para suprimir
+
+const backup = console.error;
+
+console.error = function filterWarnings(msg) {
+  const supressedWarnings = ['findDOM', 'Warning'];
+
+  if (!supressedWarnings.some(entry => msg.includes(entry))) {
+    backup.apply(console, arguments);
+  }
+}
