@@ -141,7 +141,7 @@ export const adicionaFilme = (novoFilme) => {
 
             let filmeSalvar = {
                 ...novoFilme,
-                id: novoId
+                idFilme: novoId
             }
 
             filmes.push(filmeSalvar)

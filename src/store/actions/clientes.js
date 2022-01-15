@@ -145,7 +145,7 @@ export const adicionaCliente = (novoCliente) => {
 
                 let clienteSalvar = {
                     ...novoCliente,
-                    id: novoId
+                    idCliente: novoId
                 }
 
                 clientes.push(clienteSalvar)

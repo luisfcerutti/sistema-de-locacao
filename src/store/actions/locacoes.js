@@ -40,71 +40,71 @@ export const sincronizarLocacoes = () => {
                     idLocacao: 1,
                     idCliente: 3,
                     idFilme: 6,
-                    dataLocacao: moment({ day: 1, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 3, month: 11, year: 2021 }).toDate(),
+                    dataLocacao: moment({ day: 1, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 3, month: 10, year: 2021 }).toDate(),
                     
                 },
                 {
                     idLocacao: 2,
                     idCliente: 4,
                     idFilme: 5,
-                    dataLocacao: moment({ day: 4, month: 11, year: 2021 }).toDate(),
+                    dataLocacao: moment({ day: 4, month: 10, year: 2021 }).toDate(),
                     dataDevolucao: null
                 },
                 {
                     idLocacao: 3,
                     idCliente: 8,
                     idFilme: 8,
-                    dataLocacao: moment({ day: 5, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 7, month: 11, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 5, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 7, month: 10, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 4,
                     idCliente: 1,
                     idFilme: 10,
-                    dataLocacao: moment({ day: 5, month: 11, year: 2021 }).toDate(),
+                    dataLocacao: moment({ day: 5, month: 10, year: 2021 }).toDate(),
                     dataDevolucao: null
                 },
                 {
                     idLocacao: 5,
                     idCliente: 5,
                     idFilme: 4,
-                    dataLocacao: moment({ day: 10, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 12, month: 11, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 10, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 12, month: 10, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 6,
                     idCliente: 2,
                     idFilme: 6,
-                    dataLocacao: moment({ day: 15, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 17, month: 11, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 15, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 17, month: 10, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 7,
                     idCliente: 3,
                     idFilme: 7,
-                    dataLocacao: moment({ day: 15, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 17, month: 11, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 15, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 17, month: 10, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 8,
                     idCliente: 9,
                     idFilme: 8,
-                    dataLocacao: moment({ day: 18, month: 11, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 20, month: 11, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 18, month: 10, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 20, month: 10, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 9,
                     idCliente: 3,
                     idFilme: 9,
-                    dataLocacao: moment({ day: 4, month: 12, year: 2021 }).toDate(),
-                    dataDevolucao: moment({ day: 6, month: 12, year: 2021 }).toDate()
+                    dataLocacao: moment({ day: 4, month: 11, year: 2021 }).toDate(),
+                    dataDevolucao: moment({ day: 6, month: 11, year: 2021 }).toDate()
                 },
                 {
                     idLocacao: 10,
                     idCliente: 1,
                     idFilme: 8,
-                    dataLocacao: moment({ day: 5, month: 12, year: 2021 }).toDate(),
+                    dataLocacao: moment({ day: 5, month: 11, year: 2021 }).toDate(),
                     dataDevolucao: null
                 }
             ]
@@ -151,12 +151,12 @@ export const adicionaLocacao = (novaLocacao) => {
 
             let novoId = ultimoIdAdicionado + 1
 
-            let LOCACOESalvar = {
+            let locacaoSalvar = {
                 ...novaLocacao,
-                id: novoId
+                idLocacao: novoId
             }
 
-            locacoes.push(LOCACOESalvar)
+            locacoes.push(locacaoSalvar)
 
             dispatch(setLocacoes({ locacoes, ultimoIdAdicionado: novoId }))
             dispatch(adicionarLocacaoCarregado(true))
