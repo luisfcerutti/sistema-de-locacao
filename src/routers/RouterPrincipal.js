@@ -12,7 +12,8 @@ import LayoutBase from "../common/LayoutBase";
 
 import Inicio from "../screens/inicio/Inicio";
 import Login from "../screens/login/Login";
-import Clientes from "../screens/clientes.js/Clientes";
+import Clientes from "../screens/clientes/Clientes";
+import AdicionarCliente from "../screens/clientes/AdicionarCliente";
 
 function DesconectarNecessario({ children }) {
 
@@ -49,6 +50,7 @@ export default function RouterPrincipal() {
                         <Outlet />
                     }>
                         <Route path="" element={<LayoutBase> <Clientes /> </LayoutBase>} />
+                        <Route path="adicionar-cliente" element={<LayoutBase> <AdicionarCliente /> </LayoutBase>} />
                     </Route>
                 </Route>
                 <Route path={"*"} element={
