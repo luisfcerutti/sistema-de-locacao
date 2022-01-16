@@ -66,13 +66,13 @@ export default function Login() {
     }
 
     return (
-        <div className='div-principal'>
-            <div className='div-logo'>
+        <div className='div-principal-login'>
+            <div className='div-logo-login'>
                 <Title level={3} className='title' style={{ color: 'black', textAlign: 'center' }}>Sistema Locação</Title>
             </div>
-            <div className='div-form'>
+            <div className='div-form-login'>
                 <Title level={5} style={{ color: 'black', textAlign: 'center' }}>Acessar</Title>
-                <Form className='formulario' layout={'vertical'} name="formulario-acesso">
+                <Form className='formulario-login' layout={'vertical'} name="formulario-acesso">
                     <Form.Item name="usuarioAcesso" id='usuarioAcesso' label="Usuário" validateStatus={erroUsuarioAcesso.length > 0 ? 'error' : ''} help={erroUsuarioAcesso} rules={[{ required: true }]}>
                         <Input id='usuario-input' name='usuario-input' value={usuarioAcesso} onChange={onChangeUsuarioAcesso} />
                     </Form.Item>

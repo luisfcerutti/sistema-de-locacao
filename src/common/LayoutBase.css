@@ -1,0 +1,12 @@
+.cabecalho {
+    background: grey;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    flex-direction: 'row';
+}
+
+.botao-deslogar {
+    background-color: lightgrey; 
+    color: grey;
+}

@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 import Inicio from "../screens/inicio/Inicio";
 import Login from "../screens/login/Login";
+import LayoutBase from "../common/LayoutBase";
 
 function DesconectarNecessario({ children }) {
 
@@ -41,7 +42,7 @@ export default function RouterPrincipal() {
                         <Outlet />
                     </AcessoNecessario>
                 }>
-                    <Route path="" element={<Inicio />} />                    
+                    <Route path="" element={<LayoutBase> <Inicio /> </LayoutBase>} />                    
                 </Route>
                 <Route path={"*"} element={
                   <Navigate to="/" />
