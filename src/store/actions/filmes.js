@@ -37,61 +37,61 @@ export const sincronizarFilmes = () => {
             let filmes = [
                 {
                     idFilme: 1,
-                    nome: 'O jogo da imitação',
+                    titulo: 'O jogo da imitação',
                     lancamento: 0,
                     classificacaoIndicativa: 12
                 },    
                 {
                     idFilme: 2,
-                    nome: 'A teoria de tudo',
+                    titulo: 'A teoria de tudo',
                     lancamento: 0,
                     classificacaoIndicativa: 10
                 },
                 {
                     idFilme: 3,
-                    nome: 'Piratas do Caribe',
+                    titulo: 'Piratas do Caribe',
                     lancamento: 0,
                     classificacaoIndicativa: 14
                 },
                 {
                     idFilme: 4,
-                    nome: 'Não olhe para cima',
+                    titulo: 'Não olhe para cima',
                     lancamento: 1,
                     classificacaoIndicativa: 18
                 },
                 {
                     idFilme: 5,
-                    nome: 'Vingança e Castigo',
+                    titulo: 'Vingança e Castigo',
                     lancamento: 0,
                     classificacaoIndicativa: 18
                 },
                 {
                     idFilme: 6,
-                    nome: 'O Esquadrão Suicida',
+                    titulo: 'O Esquadrão Suicida',
                     lancamento: 0,
                     classificacaoIndicativa: 16
                 },            
                 {
                     idFilme: 7,
-                    nome: 'Eternos',
+                    titulo: 'Eternos',
                     lancamento: 1,
                     classificacaoIndicativa: 14
                 },
                 {
                     idFilme: 8,
-                    nome: 'Shang-Chi e a Lenda dos Dez Anéis',
+                    titulo: 'Shang-Chi e a Lenda dos Dez Anéis',
                     lancamento: 1,
                     classificacaoIndicativa: 10
                 },
                 {
                     idFilme: 9,
-                    nome: 'Homem-Aranha: Sem Volta para Casa',
+                    titulo: 'Homem-Aranha: Sem Volta para Casa',
                     lancamento: 1,
                     classificacaoIndicativa: 12
                 },
                 {
                     idFilme: 10,
-                    nome: 'Uma mente brilhante',
+                    titulo: 'Uma mente brilhante',
                     lancamento: 0,
                     classificacaoIndicativa: 10
                 },

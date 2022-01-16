@@ -177,7 +177,7 @@ export default function AlterarLocacao() {
                     <Form.Item label="Filme" validateStatus={erroFilme.length > 0 ? 'error' : ''} help={erroFilme} rules={[{ required: true }]}>
                         <Select
                             showSearch
-                            placeholder="Buscar por nome"
+                            placeholder="Buscar por título"
                             optionFilterProp="children"
                             value={filmeSelecionado}
                             onChange={onChangeFilme}
@@ -189,7 +189,7 @@ export default function AlterarLocacao() {
                             }
                         >
                             {filmesDisponiveis.map((filme) => (
-                                <Option value={filme.idFilme} key={filme.idFilme}>{filme.nome}</Option>
+                                <Option value={filme.idFilme} key={filme.idFilme}>{filme.titulo}</Option>
                             ))}
                         </Select>
                     </Form.Item>

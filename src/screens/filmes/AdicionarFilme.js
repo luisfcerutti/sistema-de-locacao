@@ -28,11 +28,11 @@ export default function AdicionarFilme() {
     const dispatch = useDispatch()
     const filmes = useSelector((state) => state.filmes)
 
-    const [nome, setNome] = useState('')
+    const [titulo, setTitulo] = useState('')
     const [classificacaoIndicativa, setClassificacaoIndicativa] = useState(null)
     const [lancamento, setLancamento] = useState('')
 
-    const [erroNome, setErroNome] = useState('')
+    const [erroTitulo, setErroTitulo] = useState('')
     const [erroClassificacao, setErroClassificacao] = useState('')
 
     useEffect(() => {
@@ -44,8 +44,8 @@ export default function AdicionarFilme() {
         }
     }, [])
 
-    const onChangeNome = (event) => {
-        setNome(event.target.value)
+    const onChangeTitulo = (event) => {
+        setTitulo(event.target.value)
     }
 
     const onChangeLancamento = (event) => {
@@ -62,7 +62,7 @@ export default function AdicionarFilme() {
 
     const limpaErros = () => {
         if (mounted.current) {
-            setErroNome('')
+            setErroTitulo('')
             setErroClassificacao('')
         }
     }
@@ -70,22 +70,22 @@ export default function AdicionarFilme() {
     const clicaEnviar = () => {
         limpaErros()
 
-        let nomeOk = validarNomeFilme(nome)
+        let tituloOk = validarTituloFilme(titulo)
         let classificacaoOk = validarClassificacaoFilme(classificacaoIndicativa)
 
-        if (nomeOk && classificacaoOk) {
+        if (tituloOk && classificacaoOk) {
 
             let dados = {
                 classificacaoIndicativa: classificacaoIndicativa,
-                nome: nome,
+                titulo: titulo,
                 lancamento: lancamento ? 1 : 0
             }
 
             dispatch(adicionaFilme(dados))
         } else {
             
-            if (!nomeOk) {
-                setErroNome('Campo necessário')
+            if (!tituloOk) {
+                setErroTitulo('Campo necessário')
             }
             if (!classificacaoOk) {
                 setErroClassificacao('Campo necessário')
@@ -106,8 +106,8 @@ export default function AdicionarFilme() {
             />
             <Divider style={{ marginTop: 0, paddingTop: 0, marginBottom: 40 }} />
             {!filmes.sucessoAdicionar && <Form className='formulario-add-filme' layout={'vertical'} name="formulario-filme">
-                <Form.Item name="nome" id='nome' label="Nome" validateStatus={erroNome.length > 0 ? 'error' : ''} help={erroNome} rules={[{ required: true }]}>
-                    <Input id='nome-input' name='nome-input' value={nome} onChange={onChangeNome} />
+                <Form.Item name="titulo" id='titulo' label="Título" validateStatus={erroTitulo.length > 0 ? 'error' : ''} help={erroTitulo} rules={[{ required: true }]}>
+                    <Input id='titulo-input' name='titulo-input' value={titulo} onChange={onChangeTitulo} />
                 </Form.Item>
                 <Form.Item name="classificacaoIndicativa" id='classificacaoIndicativa' label="Classificação indicativa" validateStatus={erroClassificacao.length > 0 ? 'error' : ''}
                     help={erroClassificacao} rules={[{ required: true }]}>
@@ -132,7 +132,7 @@ export default function AdicionarFilme() {
             {filmes.sucessoAdicionar && <Result
                 status="success"
                 title="Filme cadastrado!"
-                subTitle={`O filme "${nome}" foi cadastrado com sucesso no sistema`}
+                subTitle={`O filme "${titulo}" foi cadastrado com sucesso no sistema`}
                 extra={[
                     <Button shape='round' key="botao-voltar-filmes" onClick={clicaVoltar}>
                         Voltar aos filmes
@@ -144,5 +144,5 @@ export default function AdicionarFilme() {
     )
 }
 
-export const validarNomeFilme = (nome = '') => nome.trim().length>=3
+export const validarTituloFilme = (titulo = '') => titulo.trim().length>=3
 export const validarClassificacaoFilme = (classificacao) => classificacao !== null

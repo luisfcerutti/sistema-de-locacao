@@ -7,7 +7,7 @@ import { alterarFilme, limpaAlterarFilme } from '../../store/actions/filmes';
 import './AlterarFilme.css'
 import Loading from '../../common/Loading';
 import { opcoesClassificacao } from '../../utils/constantes';
-import { validarClassificacaoFilme, validarNomeFilme } from './AdicionarFilme';
+import { validarClassificacaoFilme, validarTituloFilme } from './AdicionarFilme';
 
 const { Option } = Select
 
@@ -31,12 +31,11 @@ export default function AlterarFilme() {
     const params = useParams()
 
     const [idFilmeG, setIdFilmeG] = useState(null)
-    const [nome, setNome] = useState('')
-    const [cpf, setCpf] = useState('')
+    const [titulo, setTitulo] = useState('')
     const [classificacaoIndicativa, setClassificacaoIndicativa] = useState(null)
     const [lancamento, setLancamento] = useState('')
 
-    const [erroNome, setErroNome] = useState('')
+    const [erroTitulo, setErroTitulo] = useState('')
     const [erroClassificacao, setErroClassificacao] = useState('')
 
     useEffect(() => {
@@ -50,7 +49,7 @@ export default function AlterarFilme() {
 
             if(filtro.length>0){
                 let data = { ...filtro[0] }
-                setNome(data.nome)
+                setTitulo(data.titulo)
                 setClassificacaoIndicativa(data.classificacaoIndicativa)
                 setLancamento((data.lancamento === 1))
                 setIdFilmeG(parseInt(idFilme))
@@ -68,8 +67,8 @@ export default function AlterarFilme() {
         }
     }, [])
 
-    const onChangeNome = (event) => {
-        setNome(event.target.value)
+    const onChangeTitulo = (event) => {
+        setTitulo(event.target.value)
     }
 
     const onChangeLancamento = (event) => {
@@ -86,7 +85,7 @@ export default function AlterarFilme() {
 
     const limpaErros = () => {
         if (mounted.current) {
-            setErroNome('')
+            setErroTitulo('')
             setErroClassificacao('')
         }
     }
@@ -94,23 +93,23 @@ export default function AlterarFilme() {
     const clicaEnviar = () => {
         limpaErros()
 
-        let nomeOk = validarNomeFilme(nome)
+        let tituloOk = validarTituloFilme(titulo)
         let classificacaoOk = validarClassificacaoFilme(classificacaoIndicativa)
 
-        if (nomeOk && classificacaoOk) {
+        if (tituloOk && classificacaoOk) {
 
             let dados = {
                 idFilme: idFilmeG,
                 classificacaoIndicativa: classificacaoIndicativa,
-                nome: nome,
+                titulo: titulo,
                 lancamento: lancamento ? 1 : 0
             }
 
             dispatch(alterarFilme(dados))
         } else {
             
-            if (!nomeOk) {
-                setErroNome('Campo necessário')
+            if (!tituloOk) {
+                setErroTitulo('Campo necessário')
             }
             if (!classificacaoOk) {
                 setErroClassificacao('Campo necessário')
@@ -131,8 +130,8 @@ export default function AlterarFilme() {
             />
             <Divider style={{ marginTop: 0, paddingTop: 0, marginBottom: 40 }} />
             {!filmes.sucessoAlterar && <Form className='formulario-alterar-filme' layout={'vertical'} name="formulario-filme">
-                <Form.Item id='nome' label="Nome" validateStatus={erroNome.length > 0 ? 'error' : ''} help={erroNome} rules={[{ required: true }]}>
-                    <Input id='nome-input' name='nome-input' value={nome} onChange={onChangeNome} />
+                <Form.Item id='titulo' label="Título" validateStatus={erroTitulo.length > 0 ? 'error' : ''} help={erroTitulo} rules={[{ required: true }]}>
+                    <Input id='titulo-input' name='titulo-input' value={titulo} onChange={onChangeTitulo} />
                 </Form.Item>
                 <Form.Item id='classificacaoIndicativa' label="Classificação indicativa" validateStatus={erroClassificacao.length > 0 ? 'error' : ''}
                     help={erroClassificacao} rules={[{ required: true }]}>
@@ -157,7 +156,7 @@ export default function AlterarFilme() {
             {filmes.sucessoAlterar && <Result
                 status="success"
                 title="Filme alterado!"
-                subTitle={`O filme "${nome}" foi alterado com sucesso`}
+                subTitle={`O filme "${titulo}" foi alterado com sucesso`}
                 extra={[
                     <Button shape='round' key="botao-voltar-filmes" onClick={clicaVoltar}>
                         Voltar aos filmes

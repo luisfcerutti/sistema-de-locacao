@@ -64,16 +64,16 @@ export const formataNomeCliente = (idCliente, clientes) => {
     return nomeCliente
 }
 
-export const formataNomeFilme = (idFilme, filmes) => {
-    let nomeFilme = '-'
+export const formataTituloFilme = (idFilme, filmes) => {
+    let tituloFilme = '-'
 
     let filtro = filmes.filter((filme) => filme.idFilme === idFilme)
 
     if(filtro.length>0){
-        nomeFilme = filtro[0].nome
+        tituloFilme = filtro[0].titulo
     }else{
-        nomeFilme = 'Filme indisponível'
+        tituloFilme = 'Filme indisponível'
     }
 
-    return nomeFilme
+    return tituloFilme
 }

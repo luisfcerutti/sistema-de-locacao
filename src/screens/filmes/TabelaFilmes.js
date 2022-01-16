@@ -38,13 +38,13 @@ export default function TabelaFilmes(props) {
 
     const colunas = [
         {
-            title: 'Nome',
-            dataIndex: 'nome',
-            key: 'nome',
-            ...definePropriedadesBusca('nome', infoFiltro, campoBuscaRef, realizaBusca, limpaBusca, 'nome'),
-            sorter: (a, b) => a.nome.localeCompare(b.nome),
-            sortOrder: infoOrdem ? (infoOrdem.columnKey === 'nome' && infoOrdem.order) : false,
-            showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'nome' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
+            title: 'Título',
+            dataIndex: 'titulo',
+            key: 'titulo',
+            ...definePropriedadesBusca('titulo', infoFiltro, campoBuscaRef, realizaBusca, limpaBusca, 'título'),
+            sorter: (a, b) => a.titulo.localeCompare(b.titulo),
+            sortOrder: infoOrdem ? (infoOrdem.columnKey === 'titulo' && infoOrdem.order) : false,
+            showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'titulo' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
         },
         {
             title: 'Classificação Indicativa',

@@ -1,14 +1,14 @@
-import { validarNomeFilme, validarClassificacaoFilme } from './AdicionarFilme';
+import { validarTituloFilme, validarClassificacaoFilme } from './AdicionarFilme';
 
 describe('tela adicionar filme', () => {   
 
-    test('funcao de validar nome do filme deve aceitar apenas maior ou igual a tres caracteres', () => {
+    test('funcao de validar título do filme deve aceitar apenas maior ou igual a tres caracteres', () => {
         const texto = 'abc'
-        expect(validarNomeFilme(texto)).toBe(true)
+        expect(validarTituloFilme(texto)).toBe(true)
     })
-    test('funcao de validar nome do filme deve recusar menor que tres caracteres', () => {
+    test('funcao de validar título do filme deve recusar menor que tres caracteres', () => {
         const texto = 'ab'
-        expect(validarNomeFilme(texto)).not.toBe(true)
+        expect(validarTituloFilme(texto)).not.toBe(true)
     })    
     test('funcao de validar classificacao indicativa deve recusar nulos', () => {
         const dados = null

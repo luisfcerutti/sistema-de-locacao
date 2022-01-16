@@ -35,7 +35,7 @@ export default function Filmes() {
         confirm({
             title: 'Deseja prosseguir com a exclusão?',
             icon: <ExclamationCircleOutlined />,
-            content: `O filme "${filme.nome}" será excluído do sistema de maneira definitiva`,
+            content: `O filme "${filme.titulo}" será excluído do sistema de maneira definitiva`,
             okText: 'Confirmar',
             okType: 'danger',
             cancelText: 'Cancelar',

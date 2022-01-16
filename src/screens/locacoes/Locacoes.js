@@ -41,7 +41,7 @@ export default function Locacoes() {
         confirm({
             title: 'Deseja confirmar a devolução?',
             icon: <ExclamationCircleOutlined />,
-            content: `Confirmar devolução do filme "${locacao.nomeFilme}" para hoje`,
+            content: `Confirmar devolução do filme "${locacao.tituloFilme}" para hoje`,
             okText: 'Confirmar',
             cancelText: 'Cancelar',
             onOk() {

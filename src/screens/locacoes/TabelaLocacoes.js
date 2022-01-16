@@ -3,7 +3,7 @@ import { Table, Space, Button, Tooltip } from 'antd';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { formataData, formataNomeCliente, formataNomeFilme } from '../../utils/formatadores';
+import { formataData, formataNomeCliente, formataTituloFilme } from '../../utils/formatadores';
 import { definePropriedadesBusca } from '../../utils/definidores';
 import { stringLimparOrdenacao, stringOrdenarAsc, stringOrdenarDesc } from '../../utils/constantes';
 import { CheckOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
@@ -26,7 +26,7 @@ export default function TabelaLocacoes(props) {
         let locacoesTemp = Object.assign([], locacoes.locacoes)
 
         let locacoesSalvar = locacoesTemp.map((locacao) => {
-            return { ...locacao, nomeCliente: formataNomeCliente(locacao.idCliente, clientes.clientes), nomeFilme: formataNomeFilme(locacao.idFilme, filmes.filmes) }
+            return { ...locacao, nomeCliente: formataNomeCliente(locacao.idCliente, clientes.clientes), tituloFilme: formataTituloFilme(locacao.idFilme, filmes.filmes) }
         })
 
         setLocacoesMostrar(Object.assign([], locacoesSalvar))
@@ -55,12 +55,12 @@ export default function TabelaLocacoes(props) {
     const colunas = [
         {
             title: 'Filme',
-            dataIndex: 'nomeFilme',
-            key: 'nomeFilme',
-            ...definePropriedadesBusca('nomeFilme', infoFiltro, campoBuscaRef, realizaBusca, limpaBusca, 'nome do filme'),
-            sorter: (a, b) => a.nomeFilme.localeCompare(b.nomeFilme),
-            sortOrder: infoOrdem ? (infoOrdem.columnKey === 'nomeFilme' && infoOrdem.order) : false,
-            showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'nomeFilme' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
+            dataIndex: 'tituloFilme',
+            key: 'tituloFilme',
+            ...definePropriedadesBusca('tituloFilme', infoFiltro, campoBuscaRef, realizaBusca, limpaBusca, 'título do filme'),
+            sorter: (a, b) => a.tituloFilme.localeCompare(b.tituloFilme),
+            sortOrder: infoOrdem ? (infoOrdem.columnKey === 'tituloFilme' && infoOrdem.order) : false,
+            showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'tituloFilme' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
         },
         {
             title: 'Cliente',
