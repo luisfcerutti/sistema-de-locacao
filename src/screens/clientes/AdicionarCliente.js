@@ -82,7 +82,7 @@ export default function AdicionarCliente() {
 
             let dados = {
                 cpf: cpfFinal,
-                nome: nome,
+                nome: nome.length<=200 ? nome : nome.slice(0, 200),
                 dataNascimento: dataNascimentoFinal
             }
 

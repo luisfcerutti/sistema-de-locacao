@@ -98,7 +98,7 @@ export default function AlterarCliente() {
 
             let dados = {
                 idCliente: idClienteG,
-                nome: nome,
+                nome: nome.length<=200 ? nome : nome.slice(0, 200),
                 dataNascimento: dataNascimentoFinal
             }
 
