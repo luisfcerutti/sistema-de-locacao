@@ -85,7 +85,7 @@ export default function AdicionarFilme() {
         } else {
             
             if (!tituloOk) {
-                setErroTitulo('Campo necessário')
+                setErroTitulo('Deve possuir entre 3 e 100 caracteres')
             }
             if (!classificacaoOk) {
                 setErroClassificacao('Campo necessário')
@@ -144,5 +144,5 @@ export default function AdicionarFilme() {
     )
 }
 
-export const validarTituloFilme = (titulo = '') => titulo.trim().length>=3
+export const validarTituloFilme = (titulo = '') => titulo.trim().length>=3 && titulo.trim().length<=100
 export const validarClassificacaoFilme = (classificacao) => classificacao !== null

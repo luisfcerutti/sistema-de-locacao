@@ -109,7 +109,7 @@ export default function AlterarFilme() {
         } else {
             
             if (!tituloOk) {
-                setErroTitulo('Campo necessário')
+                setErroTitulo('Deve possuir entre 3 e 100 caracteres')
             }
             if (!classificacaoOk) {
                 setErroClassificacao('Campo necessário')
