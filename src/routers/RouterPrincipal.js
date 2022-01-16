@@ -14,6 +14,7 @@ import Inicio from "../screens/inicio/Inicio";
 import Login from "../screens/login/Login";
 import Clientes from "../screens/clientes/Clientes";
 import AdicionarCliente from "../screens/clientes/AdicionarCliente";
+import AlterarCliente from "../screens/clientes/AlterarCliente";
 
 function DesconectarNecessario({ children }) {
 
@@ -45,16 +46,20 @@ export default function RouterPrincipal() {
                         <Outlet />
                     </AcessoNecessario>
                 }>
-                    <Route path="" element={<LayoutBase> <Inicio /> </LayoutBase>} />                    
+                    <Route path="" element={<LayoutBase> <Inicio /> </LayoutBase>} />
                     <Route path="clientes" element={
                         <Outlet />
                     }>
                         <Route path="" element={<LayoutBase> <Clientes /> </LayoutBase>} />
                         <Route path="adicionar-cliente" element={<LayoutBase> <AdicionarCliente /> </LayoutBase>} />
+                        <Route path="alterar/:idCliente" element={<LayoutBase> <AlterarCliente /> </LayoutBase>} />
+                        <Route path={"*"} element={
+                            <Navigate to="" />
+                        } />
                     </Route>
                 </Route>
                 <Route path={"*"} element={
-                  <Navigate to="/" />
+                    <Navigate to="/" />
                 } />
             </Routes>
         </Router>
