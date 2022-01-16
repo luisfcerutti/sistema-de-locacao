@@ -6,7 +6,7 @@ export const definePropriedadesBusca = (dataIndex, infoFiltro, campoBuscaRef, re
         <div style={{ padding: 8 }}>
             <Input
                 ref={campoBuscaRef}
-                placeholder={`Buscar por ${dataIndex}`}
+                placeholder={`Buscar por ${placeholder ?? 'campo'}`}
                 value={selectedKeys[0]}
                 onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                 onPressEnter={() => realizaBusca(selectedKeys, confirm, dataIndex)}

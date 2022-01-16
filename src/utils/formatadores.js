@@ -37,3 +37,15 @@ export const formataCpf = (cpf) => {
 
     return cpfFormatado
 }
+
+export const formataClassificacaoIndicativa = (classificacao) => {
+    let classificacaoFormatada = '-'
+
+    if(classificacao === 0){
+        classificacaoFormatada = 'Livre'
+    }else{
+        classificacaoFormatada = `${classificacao}+`
+    }
+
+    return classificacaoFormatada
+}
