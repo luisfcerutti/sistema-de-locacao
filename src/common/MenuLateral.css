@@ -1,0 +1,25 @@
+.ant-menu {
+    background-color: transparent !important;
+}
+.ant-menu-item {
+    background-color: transparent !important;
+    color: #f4f4f4 !important;
+}
+.ant-menu-item-selected {
+    background-color: lightgrey !important;
+    color: grey !important;
+    border-right: 0px !important;
+    border-right-style: none !important;
+}
+.ant-menu-inline {
+    border-right: 0px !important;
+    border-right-style: none !important;
+}
+
+.div-topo {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10pt;
+}
