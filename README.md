@@ -13,3 +13,12 @@ Passo a passo para reprodução, no terminal:
 Para execução dos testes: 
 
 4 - npm test
+
+## Observação
+
+Para realizar o acesso ao sistema, é necessário utilizar:
+
+- usuário: admin
+- senha: 123456
+
+Caso contrário, o acesso será negado.
