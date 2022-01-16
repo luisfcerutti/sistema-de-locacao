@@ -20,6 +20,7 @@ import AdicionarFilme from "../screens/filmes/AdicionarFilme";
 import AlterarFilme from "../screens/filmes/AlterarFilme";
 import Locacoes from "../screens/locacoes/Locacoes";
 import NovaLocacao from "../screens/locacoes/NovaLocacao";
+import AlterarLocacao from "../screens/locacoes/AlterarLocacao";
 
 function DesconectarNecessario({ children }) {
 
@@ -77,6 +78,7 @@ export default function RouterPrincipal() {
                     }>
                         <Route path="" element={<LayoutBase> <Locacoes /> </LayoutBase>} /> 
                         <Route path="nova-locacao" element={<LayoutBase> <NovaLocacao /> </LayoutBase>} />
+                        <Route path="alterar/:idLocacao" element={<LayoutBase> <AlterarLocacao /> </LayoutBase>} />
                         <Route path={"*"} element={
                             <Navigate to="" />
                         } />
