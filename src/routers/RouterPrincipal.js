@@ -8,9 +8,11 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import LayoutBase from "../common/LayoutBase";
+
 import Inicio from "../screens/inicio/Inicio";
 import Login from "../screens/login/Login";
-import LayoutBase from "../common/LayoutBase";
+import Clientes from "../screens/clientes.js/Clientes";
 
 function DesconectarNecessario({ children }) {
 
@@ -43,6 +45,11 @@ export default function RouterPrincipal() {
                     </AcessoNecessario>
                 }>
                     <Route path="" element={<LayoutBase> <Inicio /> </LayoutBase>} />                    
+                    <Route path="clientes" element={
+                        <Outlet />
+                    }>
+                        <Route path="" element={<LayoutBase> <Clientes /> </LayoutBase>} />
+                    </Route>
                 </Route>
                 <Route path={"*"} element={
                   <Navigate to="/" />
