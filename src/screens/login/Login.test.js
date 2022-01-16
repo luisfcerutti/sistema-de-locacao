@@ -1,3 +1,4 @@
+import { render, screen, fireEvent } from '@testing-library/react';
 import { validarSenha, validarUsuario } from './Login';
 
 describe('tela login', () => {   
