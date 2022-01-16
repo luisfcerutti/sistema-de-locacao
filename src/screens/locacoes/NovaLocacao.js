@@ -128,6 +128,7 @@ export default function NovaLocacao() {
                             optionFilterProp="children"
                             value={clienteSelecionado}
                             onChange={onChangeCliente}
+                            notFoundContent={<p>Nenhum cliente encontrado</p>}
                             filterOption={(input, option) =>
                                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                             }
@@ -147,6 +148,7 @@ export default function NovaLocacao() {
                             optionFilterProp="children"
                             value={filmeSelecionado}
                             onChange={onChangeFilme}
+                            notFoundContent={<p>Nenhum filme encontrado</p>}
                             filterOption={(input, option) =>
                                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                             }
