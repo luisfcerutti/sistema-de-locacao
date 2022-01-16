@@ -7,6 +7,7 @@ import { formataData, formataNomeCliente, formataTituloFilme } from '../../utils
 import { definePropriedadesBusca } from '../../utils/definidores';
 import { stringLimparOrdenacao, stringOrdenarAsc, stringOrdenarDesc } from '../../utils/constantes';
 import { CheckOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import moment from 'moment';
 
 export default function TabelaLocacoes(props) {
 
@@ -52,6 +53,19 @@ export default function TabelaLocacoes(props) {
         navigate(`/locacoes/alterar/${locacao.idLocacao}`)
     }
 
+    const ordenarDataDevolucao = (a, b) => {
+        let momentA = moment(a.dataDevolucao)
+        let momentB = moment(b.dataDevolucao)
+
+        if(!momentA.isValid()){
+            return 1
+        }else if(!momentB.isValid()) {
+            return -1
+        }else{
+            return momentA.toDate() - momentB.toDate()
+        }
+    }
+
     const colunas = [
         {
             title: 'Filme',
@@ -76,7 +90,7 @@ export default function TabelaLocacoes(props) {
             dataIndex: 'dataLocacao',
             key: 'dataLocacao',
             showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'dataLocacao' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
-            sorter: (a, b) => a.dataLocacao - b.dataLocacao,
+            sorter: (a, b) => moment(a.dataLocacao).toDate() - moment(b.dataLocacao).toDate(),
             sortOrder: infoOrdem ? (infoOrdem.columnKey === 'dataLocacao' && infoOrdem.order) : false,
             render: (text, record) => formataData(record.dataLocacao)
         },
@@ -85,7 +99,7 @@ export default function TabelaLocacoes(props) {
             dataIndex: 'dataDevolucao',
             key: 'dataDevolucao',
             showSorterTooltip: { title: infoOrdem ? (infoOrdem.columnKey === 'dataDevolucao' ? (infoOrdem.order === undefined ? stringOrdenarAsc : (infoOrdem.order === 'ascend' ? stringOrdenarDesc : stringLimparOrdenacao)) : stringOrdenarAsc) : stringOrdenarAsc },
-            sorter: (a, b) => a.dataDevolucao - b.dataDevolucao,
+            sorter: (a, b) => ordenarDataDevolucao(a,b),
             sortOrder: infoOrdem ? (infoOrdem.columnKey === 'dataDevolucao' && infoOrdem.order) : false,
             render: (text, record) => formataData(record.dataDevolucao)
         },
