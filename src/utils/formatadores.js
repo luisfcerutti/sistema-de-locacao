@@ -49,3 +49,31 @@ export const formataClassificacaoIndicativa = (classificacao) => {
 
     return classificacaoFormatada
 }
+
+export const formataNomeCliente = (idCliente, clientes) => {
+    let nomeCliente = '-'
+
+    let filtro = clientes.filter((cliente) => cliente.idCliente === idCliente)
+
+    if(filtro.length>0){
+        nomeCliente = filtro[0].nome
+    }else{
+        nomeCliente = 'Cliente indisponível'
+    }
+
+    return nomeCliente
+}
+
+export const formataNomeFilme = (idFilme, filmes) => {
+    let nomeFilme = '-'
+
+    let filtro = filmes.filter((filme) => filme.idFilme === idFilme)
+
+    if(filtro.length>0){
+        nomeFilme = filtro[0].nome
+    }else{
+        nomeFilme = 'Filme indisponível'
+    }
+
+    return nomeFilme
+}

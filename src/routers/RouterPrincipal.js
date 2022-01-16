@@ -18,6 +18,7 @@ import AlterarCliente from "../screens/clientes/AlterarCliente";
 import Filmes from "../screens/filmes/Filmes";
 import AdicionarFilme from "../screens/filmes/AdicionarFilme";
 import AlterarFilme from "../screens/filmes/AlterarFilme";
+import Locacoes from "../screens/locacoes/Locacoes";
 
 function DesconectarNecessario({ children }) {
 
@@ -66,6 +67,14 @@ export default function RouterPrincipal() {
                         <Route path="" element={<LayoutBase> <Filmes /> </LayoutBase>} />    
                         <Route path="adicionar-filme" element={<LayoutBase> <AdicionarFilme /> </LayoutBase>} />  
                         <Route path="alterar/:idFilme" element={<LayoutBase> <AlterarFilme /> </LayoutBase>} />                  
+                        <Route path={"*"} element={
+                            <Navigate to="" />
+                        } />
+                    </Route>
+                    <Route path="locacoes" element={
+                        <Outlet />
+                    }>
+                        <Route path="" element={<LayoutBase> <Locacoes /> </LayoutBase>} /> 
                         <Route path={"*"} element={
                             <Navigate to="" />
                         } />
