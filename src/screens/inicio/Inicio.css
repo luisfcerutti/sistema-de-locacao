@@ -1,6 +1,8 @@
 .div-principal-inicio {
     padding-left: 30px;
     padding-right: 30px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 } 
